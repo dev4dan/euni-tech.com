@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>科技企业展示 - 白底版</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0a84ff;
+            --secondary: #5e5ce6;
+            --brand-gradient: linear-gradient(90deg, var(--primary), var(--secondary));
+            --bg: #ffffff;
+            --text: #222222;
+            --muted: #6b6b6b;
+            --surface: #f8f9fb;
+            --border: #e6e7ea;
+            --shadow-weak: 0 6px 18px rgba(30,30,30,0.06);
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏样式 */
+        header {
+            background: var(--bg);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-weak);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 28px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* 英雄区域样式 */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 18px;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin: 0 auto 30px;
+            color: var(--muted);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--brand-gradient);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(10,132,255,0.12);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(10,132,255,0.12);
+        }
+
+        /* 图片轮播样式 */
+        .carousel-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            position: relative;
+            color: var(--text);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--brand-gradient);
+            margin: 12px auto;
+            border-radius: 2px;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(30,30,30,0.06);
+            background: #fff;
+            border: 1px solid var(--border);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.95));
+            padding: 26px 20px 22px;
+            color: var(--text);
+            border-top: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .carousel-caption h3 {
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+        }
+
+        .carousel-caption p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 12px;
+            pointer-events: none;
+        }
+
+        .carousel-btn {
+            pointer-events: all;
+            background: rgba(0,0,0,0.06);
+            border: none;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            color: var(--text);
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(10,132,255,0.12);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.12);
+            margin: 0 6px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .indicator.active {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* 公司简介样式 */
+        .about {
+            padding: 80px 0;
+            background: var(--bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: var(--muted);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(30,30,30,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: var(--surface);
+            padding: 48px 0 28px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            padding: 0 18px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+            position: relative;
+            color: var(--text);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            border-radius: 50%;
+            color: var(--text);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: background 0.2s, transform 0.12s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-4px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 18px;
+            border-top: 1px solid rgba(0,0,0,0.03);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .carousel-item img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">TECHNOVA</div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#products">产品展示</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>创新科技，引领未来</h1>
+            <p>我们致力于研发前沿科技解决方案，为客户提供卓越的产品与服务，推动行业数字化变革。</p>
+            <a href="#products" class="btn">探索产品</a>
+        </div>
+    </section>
+
+    <!-- 图片轮播区域 -->
+    <section class="carousel-section" id="products">
+        <div class="container">
+            <h2 class="section-title">产品展示</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="智能设备">
+                        <div class="carousel-caption">
+                            <h3>智能终端设备</h3>
+                            <p>采用最新AI技术的智能终端，提升工作效率与用户体验</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="数据分析">
+                        <div class="carousel-caption">
+                            <h3>数据分析平台</h3>
+                            <p>强大的数据处理与分析能力，助力企业决策</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="云服务">
+                        <div class="carousel-caption">
+                            <h3>云端解决方案</h3>
+                            <p>安全可靠的云服务平台，满足企业多样化需求</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1563013541-5b0c0c4b1d67?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="网络安全">
+                        <div class="carousel-caption">
+                            <h3>网络安全系统</h3>
+                            <p>全方位网络安全防护，保障企业数据安全</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>关于我们</h2>
+                    <p>TECHNOVA是一家专注于前沿科技研发的创新企业，成立于2015年。我们拥有一支由行业专家和资深工程师组成的团队，致力于为客户提供最优质的科技解决方案。</p>
+                    <p>我们的使命是通过技术创新推动社会进步，帮助企业实现数字化转型，提升竞争力。我们坚信科技的力量可以改变世界，创造更美好的未来。</p>
+                    <p>截至目前，我们已经为全球超过500家企业提供了专业的科技服务，涵盖了金融、医疗、教育、制造等多个行业领域。</p>
+                    <a href="#contact" class="btn">联系我们</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="团队合作">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市海淀区科技园区88号</li>
+                        <li><i class="fas fa-phone"></i> +86 10 8888 8888</li>
+                        <li><i class="fas fa-envelope"></i> info@technova.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#products">产品展示</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>关注我们</h3>
+                    <p>关注我们的社交媒体，获取最新动态</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TECHNOVA 科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 图片轮播功能（保留原逻辑）
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            let currentIndex = 0;
+            const totalItems = items.length;
+            
+            // 更新轮播位置
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新指示器状态
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // 下一张图片
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            }
+            
+            // 上一张图片
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCarousel();
+            }
+            
+            // 自动轮播
+            let autoPlay = setInterval(nextSlide, 5000);
+            
+            // 鼠标悬停时暂停自动轮播
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoPlay);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(nextSlide, 5000);
+            });
+            
+            // 按钮点击事件
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // 指示器点击事件
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
