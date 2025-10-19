@@ -221,98 +221,175 @@
             color: var(--muted);
             font-size: 0.95rem;
         }
-
-        /* 发展历程样式 */
-        .timeline {
+        
+        /*发展时间线*/
+        .timeline-bg{
             background: var(--surface);
         }
 
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+        
+        .timeline-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            /* background: linear-gradient(to right, #64ffda, #00a8ff); */
+            background:  #00a8ff;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: #0a84ff;
+            text-shadow: 0 2px 10px rgba(0, 168, 255, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .timeline-header h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #ccd6f6;
+            margin: 10px;
+        }
+        
+        .timeline-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #8892b0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        /* 时间线容器 */
         .timeline-container {
             position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 40px 0;
+            margin: 250px 0 100px;
         }
-
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
+        
+        /* 时间线 */
+        .timeline {
             position: relative;
-            margin-bottom: 50px;
-            width: 50%;
-            padding: 0 40px;
+            height: 8px;
+            background: linear-gradient(to right, #0a192f, #0a84ff, #0a192f);
+            border-radius: 5px;
+            margin: 0 50px;
+            box-shadow: 0 0 20px rgba(0, 168, 255, 0.4);
         }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow-weak);
-            border: 1px solid var(--border);
-        }
-
-        .timeline-year {
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::after {
-            content: '';
+        
+        /* 时间节点 */
+        .timeline-marker {
             position: absolute;
-            right: -10px;
-            top: 20px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 10px solid white;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::after {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 20px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-right: 10px solid white;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
+            width: 26px;
+            height: 26px;
+            background: #0a192f;
+            border: 4px solid #0a84ff;
             border-radius: 50%;
-            background: var(--primary);
-            top: 20px;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(0, 168, 255, 0.8);
         }
-
-        .timeline-item:nth-child(odd)::before {
-            right: -8px;
+        
+        .timeline-marker.top {
+            top: -9px;
         }
-
-        .timeline-item:nth-child(even)::before {
-            left: -8px;
+        
+        .timeline-marker.bottom {
+            bottom: -9px;
+        }
+        
+        /* 时间节点内容 */
+        .timeline-content {
+            position: absolute;
+            width: 280px;
+            background: rgba(17, 34, 64, 0.9);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            /* background: linear-gradient(to right, #00a8ff, #64ffda); */
+            background: #0a84ff;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .timeline-content.top {
+            bottom: 80px;
+        }
+        
+        .timeline-content.bottom {
+            top: 80px;
+        }
+        
+        .timeline-year {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0a84ff;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-year i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #e6f1ff;
+        }
+        
+        .timeline-description {
+            color: #a8b2d1;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        /* 战略总结 */
+        .timeline-summary {
+            max-width: 900px;
+            margin: 250px auto 30px;
+            text-align: center;
+            padding: 10px;
+            background: rgba(17, 34, 64, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+        }
+        
+        .timeline-summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            /* background: linear-gradient(to right, #00a8ff, #64ffda); */
+            background: #0a84ff;
+        }
+        
+        .timeline-summary p {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ccd6f6;
+        }
+        
+        .timeline-highlight {
+            color: #0a84ff;
+            font-weight: 600;
         }
 
         /* 企业优势样式 */
@@ -342,16 +419,22 @@
 
         .advantage-icon {
             font-size: 2.5rem;
-            margin-bottom: 20px;
             background: var(--brand-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
+        .advantage-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
         .advantage-card h3 {
             font-size: 1.4rem;
-            margin-bottom: 15px;
+            margin-bottom: 0;
             color: var(--text);
         }
 
@@ -396,9 +479,10 @@
             border-radius: 8px;
             padding: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100px;
+            height: 120px;
             box-shadow: var(--shadow-weak);
             border: 1px solid var(--border);
             transition: transform 0.3s;
@@ -408,9 +492,19 @@
             transform: translateY(-5px);
         }
 
-        .partner-logo span {
+        .partner-logo img {
+            max-width: 80px;
+            max-height: 50px;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+
+        .partner-logo span,
+        .partner-text {
             font-weight: bold;
             color: var(--text);
+            font-size: 0.9rem;
+            text-align: center;
         }
 
         .achievements {
@@ -629,6 +723,15 @@
             color: var(--primary);
         }
 
+        .footer-links-grid {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links-grid .footer-links {
+            flex: 1;
+        }
+
         .social-links {
             display: flex;
             gap: 12px;
@@ -684,28 +787,71 @@
                 gap: 20px;
             }
 
-            .timeline-container::before {
-                left: 20px;
+            .footer-links-grid {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            /*时间线交互*/
+            .timeline-content {
+                width: 240px;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 50px;
-                padding-right: 0;
-                left: 0 !important;
+            .timeline-header h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .timeline {
+                margin: 0 20px;
+            }
+            
+            .timeline-content {
+                width: 160px;
+                padding: 15px;
+            }
+            
+            .timeline-year {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-title {
+                font-size: 1rem;
+            }
+            
+            .timeline-description {
+                font-size: 0.8rem;
+            }
+            
+            .timeline-summary {
+                padding: 25px;
+            }
+            
+            .timeline-summary p {
+                font-size: 1rem;
             }
 
-            .timeline-item:nth-child(odd)::before,
-            .timeline-item:nth-child(even)::before {
-                left: 12px;
+            .timeline-header h1 {
+                font-size: 2.5rem;
             }
+            
+            .timeline-content {
+                width: 200px;
+                padding: 20px;
+            }
+            
+            .timeline-title {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-description {
+                font-size: 0.9rem;
+            }
+            /*时间线交互*/
 
-            .timeline-item:nth-child(odd) .timeline-content::after,
-            .timeline-item:nth-child(even) .timeline-content::after {
-                left: -10px;
-                border-right: 10px solid white;
-                border-left: none;
-            }
         }
     </style>
 </head>
@@ -714,7 +860,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">EUNITECH</div>
+                <div class="logo">EUNI-TECH</div>
                 <ul class="nav-links">
                     <li><a href="#overview">整体介绍</a></li>
                     <li><a href="#timeline">发展历史</a></li>
@@ -731,7 +877,7 @@
     <!-- 英雄区域 -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>赋能中国科技企业，安全无忧出海欧洲</h1>
+            <h1>赋能中国科技企业  安全无忧出海欧洲</h1>
             <p>EuniTech是一家专注于欧洲数据合规运营、交付实施及海外运维领域的新兴科技公司，为中国科技企业出海欧洲提供专业技术及服务支持，助力合作伙伴安全高效地拓展欧洲市场。</p>
             <a href="#overview" class="btn">了解更多</a>
         </div>
@@ -743,13 +889,14 @@
             <h2 class="section-title">整体介绍</h2>
             <div class="overview-content">
                 <div class="overview-text">
-                    <h2>关于EuniTech</h2>
+                    <h2>关于Euni-Tech</h2>
                     <p>EuniTech是一家专注于欧洲数据合规运营、交付实施及海外运维领域的新兴科技公司，总部位于瑞典哥德堡，同时在布达佩斯、广州、上海设有办公室。</p>
-                    <p>公司核心团队由来自头部汽车企业、知名互联网公司的资深产品和技术专家组成，具备丰富的行业经验与技术实力。目前拥有全职员工20人+，持续为中国科技企业出海欧洲提供专业技术及服务支持。</p>
+                    <p>公司核心团队由来自头部汽车企业、知名互联网公司的资深产品和技术专家组成，具备丰富的行业经验与技术实力。目前拥有全职员工超20人，持续为中国科技企业出海欧洲提供专业技术及服务支持。</p>
                     <p>我们的使命是助力合作伙伴安全高效地拓展欧洲市场，通过专业的数据合规咨询、技术实施与全托管运维服务，确保企业在欧洲市场的业务稳定运行并符合当地法规要求。</p>
                 </div>
                 <div class="overview-image">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="EuniTech团队">
+                    <!-- <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="EuniTech团队"> -->
+                     <img src="images/LSP_FlyingOver_2_HighRes_beskuren.still_.png" alt="Euni-Tech总部">
                 </div>
             </div>
             <div class="stats-grid">
@@ -773,34 +920,65 @@
         </div>
     </section>
 
-    <!-- 发展历史 -->
-    <section class="section timeline" id="timeline">
-        <div class="container">
-            <h2 class="section-title">发展历程</h2>
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2019 – 2022</div>
-                        <h3>欧洲研发起点</h3>
-                        <p>团队起源于头部车企在欧洲的研发中心，专注于车联网系统的GDPR合规设计与数据保护研发。</p>
-                    </div>
+    <!-- 发展历程 - 横向时间线，优化布局 -->
+    <section class="timeline-bg" id="timeline">
+        <div class="timeline-header">
+            <h1>发展历程</h1>
+            <h2>从车企研发中心到多元合规专家</h2>
+            <p>我们始终致力于为全球客户提供卓越的数据合规服务</p>
+        </div>
+        
+        <div class="timeline-container">
+            <div class="timeline"></div>
+            
+            <!-- 2019-2022 -->
+            <div class="timeline-marker top" style="left: 20%;"></div>
+            <div class="timeline-content top" style="left: 20%; transform: translateX(-50%);">
+                <div class="timeline-year"><i class="fas fa-rocket"></i> 2019-2022</div>
+                <div class="timeline-title">欧洲研发起点</div>
+                <div class="timeline-description">
+                    团队起源于头部车企在欧洲的科技中心，专注于车联网系统的GDPR合规设计与数据保护研究。
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2023 – 2024</div>
-                        <h3>运维与专业化</h3>
-                        <p>团队持续服务中国车企全球合规运维，积累了跨国数据合规与运维的实践经验。</p>
-                    </div>
+            </div>
+            
+            <!-- 2023-2024 -->
+            <div class="timeline-marker bottom" style="left: 35%;"></div>
+            <div class="timeline-content bottom" style="left: 35%; transform: translateX(-50%);">
+                <div class="timeline-year"><i class="fas fa-cogs"></i> 2023-2024</div>
+                <div class="timeline-title">运维与专业化</div>
+                <div class="timeline-description">
+                    团队持续服务中国车企全球合规运维，积累了跨国数据合规与运维的实践经验。
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2025</div>
-                        <h3>服务多元化</h3>
-                        <p>公司业务拓展至更多中国科技企业出海项目，提供GDPR合规咨询、实施交付与海外运维等多元化服务。</p>
-                    </div>
+            </div>
+            
+            <!-- 2025 -->
+            <div class="timeline-marker top" style="left: 50%;"></div>
+            <div class="timeline-content top" style="left: 50%; transform: translateX(-50%);">
+                <div class="timeline-year"><i class="fas fa-chart-network"></i> 2025</div>
+                <div class="timeline-title">服务多元化</div>
+                <div class="timeline-description">
+                    公司业务拓展至更多中国科技企业出海项目，提供GDPR合规咨询、实施交付与海外运维等多元化服务。
+                </div>
+            </div>
+            
+            <!-- 2026+ -->
+            <div class="timeline-marker bottom" style="left: 70%;"></div>
+            <div class="timeline-content bottom" style="left: 70%; transform: translateX(-50%);">
+                <div class="timeline-year"><i class="fas fa-robot"></i> 2026+</div>
+                <div class="timeline-title">智能化升级</div>
+                <div class="timeline-description">
+                    团队将人工智能技术融入运维与合规服务体系，持续提升自动化与智能决策能力，推动数据合规向智能合规进化。
                 </div>
             </div>
         </div>
+        
+        <div class="timeline-summary">
+            <p>从车联网GDPR合规的<span class="timeline-highlight">从0到1</span>，
+            <p>到跨国数据治理的<span class="timeline-highlight">方法论沉淀</span>，</p>
+            <p>再到泛科技企业的<span class="timeline-highlight">全链路能力输出</span></p>
+            <p>我们始终走在"先难后易、先深后宽"的战略道路上</p>
+        </div>
+    </div>
     </section>
 
     <!-- 企业优势 -->
@@ -809,10 +987,12 @@
             <h2 class="section-title">企业优势</h2>
             <div class="advantages-grid">
                 <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="advantage-header">
+                        <div class="advantage-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>数据合规服务</h3>
                     </div>
-                    <h3>数据合规服务</h3>
                     <p>助力企业安全、高效、持续满足欧洲数据合规要求</p>
                     <ul class="advantage-features">
                         <li>专业级的欧盟数据法规专家</li>
@@ -822,10 +1002,12 @@
                     </ul>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-rocket"></i>
+                    <div class="advantage-header">
+                        <div class="advantage-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>实施交付</h3>
                     </div>
-                    <h3>实施交付</h3>
                     <p>确保项目高效交付，实现合规与业务价值双赢</p>
                     <ul class="advantage-features">
                         <li>欧盟领域全覆盖交付</li>
@@ -835,10 +1017,12 @@
                     </ul>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-cogs"></i>
+                    <div class="advantage-header">
+                        <div class="advantage-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>全托管运维</h3>
                     </div>
-                    <h3>全托管运维</h3>
                     <p>全方位托管运维，保障系统稳定、安全与合规</p>
                     <ul class="advantage-features">
                         <li>更懂用户的运维团队</li>
@@ -851,23 +1035,54 @@
         </div>
     </section>
 
-    <!-- 合作伙伴与成绩 -->
+    <!-- 合作伙伴与案例 -->
     <section class="section partners" id="partners">
         <div class="container">
-            <h2 class="section-title">合作伙伴与成绩</h2>
+            <h2 class="section-title">合作伙伴与案例</h2>
             <div class="partners-grid">
-                <div class="partner-logo"><span>领克</span></div>
-                <div class="partner-logo"><span>沃尔沃</span></div>
-                <div class="partner-logo"><span>极氪</span></div>
-                <div class="partner-logo"><span>极星</span></div>
-                <div class="partner-logo"><span>岚图</span></div>
-                <div class="partner-logo"><span>中国远洋集团</span></div>
-                <div class="partner-logo"><span>雅典国际机场</span></div>
-                <div class="partner-logo"><span>Aurobay</span></div>
-                <div class="partner-logo"><span>福田汽车</span></div>
+                <div class="partner-logo">
+                    <img src="images/领克-link.png" alt="领克">
+                    <span>领克</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/沃尔沃-volvo.svg" alt="沃尔沃">
+                    <span>沃尔沃</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/极氪-Zeekr.png" alt="极氪">
+                    <span>极氪</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/极星-Polestar.png" alt="极星">
+                    <span>极星</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/岚图-Voyah.png" alt="岚图">
+                    <span>岚图</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/中远集团-cosco.png" alt="中国远洋集团">
+                    <span>中国远洋集团</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/莲花-Lotus.png" alt="莲花 Lotus">
+                    <span>莲花 Lotus</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/极光湾-aurobay.png" alt="极光湾 Aurobay">
+                    <span>极光湾 Aurobay</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/福田-FOTON.png" alt="福田汽车">
+                    <span>福田汽车</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/奔驰-Smart.jpg" alt="Smart">
+                    <span>奔驰 Smart</span>
+                </div>
             </div>
             <div class="achievements">
-                <h3 style="margin-bottom: 20px; color: var(--text);">代表性项目成果</h3>
+                <h3 style="margin-bottom: 20px; color: var(--text);">合作项目</h3>
                 <div class="achievement-item">
                     <div class="achievement-title">吉利集团全球车联网项目</div>
                     <p>为吉利集团汽车品牌（包括领克、沃尔沃、极氪、极星、路特斯与Smart）提供车联网系统的欧洲及全球技术运维服务，覆盖多个车型与市场。</p>
@@ -951,7 +1166,8 @@
                     </ul>
                 </div>
                 <div class="future-image">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="未来技术">
+                    <!-- <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="未来技术"> -->
+                     <img src="images/机器人.png" alt="机器人"/>
                 </div>
             </div>
         </div>
@@ -965,20 +1181,25 @@
                     <h3>联系我们</h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-map-marker-alt"></i> 总部：瑞典哥德堡</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 办公室：布达佩斯、广州、上海</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 总部地址：Karlavagnsgatan 1, 41752 Gothenburg, Sweden
+</li>
                         <li><i class="fas fa-envelope"></i> info@euni-tech.com</li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>快速链接</h3>
-                    <ul class="footer-links">
-                        <li><a href="#overview">整体介绍</a></li>
-                        <li><a href="#timeline">发展历史</a></li>
-                        <li><a href="#advantages">企业优势</a></li>
-                        <li><a href="#partners">合作伙伴</a></li>
-                        <li><a href="#team">人才资源</a></li>
-                        <li><a href="#future">未来方向</a></li>
-                    </ul>
+                    <div class="footer-links-grid">
+                        <ul class="footer-links">
+                            <li><a href="#overview">整体介绍</a></li>
+                            <li><a href="#timeline">发展历史</a></li>
+                            <li><a href="#advantages">企业优势</a></li>
+                        </ul>
+                        <ul class="footer-links">
+                            <li><a href="#partners">合作伙伴</a></li>
+                            <li><a href="#team">人才资源</a></li>
+                            <li><a href="#future">未来方向</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="footer-column">
                     <h3>关注我们</h3>
@@ -992,7 +1213,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 EuniTech AB. 保留所有权利. | <a href="https://www.euni-tech.com" style="color: var(--primary);">www.euni-tech.com</a></p>
+                <!-- <p>&copy; 2023 EuniTech AB. 保留所有权利. | <a href="https://www.euni-tech.com" style="color: var(--primary);">www.euni-tech.com</a></p> -->
                 <p style="margin-top: 10px;">引领欧洲数据合规与运维领域的创新与卓越未来</p>
             </div>
         </div>
