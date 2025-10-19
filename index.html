@@ -225,11 +225,13 @@
         /*发展时间线*/
         .timeline-bg{
             background: var(--surface);
+            height: 700px;
         }
 
         .timeline-header {
             text-align: center;
-            margin-bottom: 60px;
+            font-size: 2rem;
+            margin-bottom: 40px;
             padding: 0 20px;
         }
         
@@ -240,7 +242,7 @@
             background:  #00a8ff;
             -webkit-background-clip: text;
             background-clip: text;
-            color: #0a84ff;
+            color: #010101;
             text-shadow: 0 2px 10px rgba(0, 168, 255, 0.3);
             letter-spacing: 1px;
         }
@@ -271,7 +273,8 @@
         .timeline {
             position: relative;
             height: 8px;
-            background: linear-gradient(to right, #0a192f, #0a84ff, #0a192f);
+            /* background: linear-gradient(to right, #0a192f, #0a84ff, #0a192f); */
+            background: #0a84ff;
             border-radius: 5px;
             margin: 0 50px;
             box-shadow: 0 0 20px rgba(0, 168, 255, 0.4);
@@ -282,7 +285,7 @@
             position: absolute;
             width: 26px;
             height: 26px;
-            background: #0a192f;
+            background: #ffffff;
             border: 4px solid #0a84ff;
             border-radius: 50%;
             transform: translateX(-50%);
@@ -291,18 +294,18 @@
         }
         
         .timeline-marker.top {
-            top: -9px;
+            top: 5px;
         }
         
         .timeline-marker.bottom {
-            bottom: -9px;
+            bottom: 5px;
         }
         
         /* 时间节点内容 */
         .timeline-content {
             position: absolute;
             width: 280px;
-            background: rgba(17, 34, 64, 0.9);
+            background: rgba(253, 254, 255, 0.9);
             border-radius: 12px;
             padding: 25px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
@@ -322,11 +325,11 @@
         }
         
         .timeline-content.top {
-            bottom: 80px;
+            bottom: 60px;
         }
         
         .timeline-content.bottom {
-            top: 80px;
+            top: 60px;
         }
         
         .timeline-year {
@@ -347,7 +350,7 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 15px;
-            color: #e6f1ff;
+            color: #2e86f8;
         }
         
         .timeline-description {
@@ -357,7 +360,7 @@
         }
         
         /* 战略总结 */
-        .timeline-summary {
+        /* .timeline-summary {
             max-width: 900px;
             margin: 250px auto 30px;
             text-align: center;
@@ -367,7 +370,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(100, 255, 218, 0.1);
             position: relative;
-        }
+        } */
         
         .timeline-summary::before {
             content: '';
@@ -394,7 +397,7 @@
 
         /* 企业优势样式 */
         .advantages {
-            background: var(--bg);
+            background: var(--surface);
         }
 
         .advantages-grid {
@@ -428,6 +431,7 @@
         .advantage-header {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             margin-bottom: 20px;
         }
@@ -464,9 +468,9 @@
         }
 
         /* 合作伙伴样式 */
-        .partners {
+        /* .partners {
             background: var(--surface);
-        }
+        } */
 
         .partners-grid {
             display: grid;
@@ -835,7 +839,7 @@
             }
 
             .timeline-header h1 {
-                font-size: 2.5rem;
+                font-size: 2.0rem;
             }
             
             .timeline-content {
@@ -860,14 +864,14 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">EUNI-TECH</div>
+                <div class="logo">EuniTech</div>
                 <ul class="nav-links">
                     <li><a href="#overview">整体介绍</a></li>
                     <li><a href="#timeline">发展历史</a></li>
                     <li><a href="#advantages">企业优势</a></li>
-                    <li><a href="#partners">合作伙伴</a></li>
                     <li><a href="#team">人才资源</a></li>
                     <li><a href="#future">未来方向</a></li>
+                    <li><a href="#partners">合作伙伴</a></li>
                     <li><a href="#contact">联系我们</a></li>
                 </ul>
             </nav>
@@ -877,7 +881,7 @@
     <!-- 英雄区域 -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>赋能中国科技企业  安全无忧出海欧洲</h1>
+            <h1>赋能中国科技企业 &nbsp;&nbsp; 安全无忧出海欧洲</h1>
             <p>EuniTech是一家专注于欧洲数据合规运营、交付实施及海外运维领域的新兴科技公司，为中国科技企业出海欧洲提供专业技术及服务支持，助力合作伙伴安全高效地拓展欧洲市场。</p>
             <a href="#overview" class="btn">了解更多</a>
         </div>
@@ -889,14 +893,14 @@
             <h2 class="section-title">整体介绍</h2>
             <div class="overview-content">
                 <div class="overview-text">
-                    <h2>关于Euni-Tech</h2>
+                    <h2>关于EuniTech</h2>
                     <p>EuniTech是一家专注于欧洲数据合规运营、交付实施及海外运维领域的新兴科技公司，总部位于瑞典哥德堡，同时在布达佩斯、广州、上海设有办公室。</p>
                     <p>公司核心团队由来自头部汽车企业、知名互联网公司的资深产品和技术专家组成，具备丰富的行业经验与技术实力。目前拥有全职员工超20人，持续为中国科技企业出海欧洲提供专业技术及服务支持。</p>
                     <p>我们的使命是助力合作伙伴安全高效地拓展欧洲市场，通过专业的数据合规咨询、技术实施与全托管运维服务，确保企业在欧洲市场的业务稳定运行并符合当地法规要求。</p>
                 </div>
                 <div class="overview-image">
                     <!-- <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="EuniTech团队"> -->
-                     <img src="images/LSP_FlyingOver_2_HighRes_beskuren.still_.png" alt="Euni-Tech总部">
+                     <img src="images/uni3.jpg" alt="Euni-Tech总部">
                 </div>
             </div>
             <div class="stats-grid">
@@ -921,17 +925,14 @@
     </section>
 
     <!-- 发展历程 - 横向时间线，优化布局 -->
-    <section class="timeline-bg" id="timeline">
+    <!-- <section class="timeline-bg" id="timeline">
         <div class="timeline-header">
-            <h1>发展历程</h1>
-            <h2>从车企研发中心到多元合规专家</h2>
-            <p>我们始终致力于为全球客户提供卓越的数据合规服务</p>
+            <h1 class="section-title" style="font-size: 2.0rem;">发展历程</h1>
         </div>
         
         <div class="timeline-container">
             <div class="timeline"></div>
             
-            <!-- 2019-2022 -->
             <div class="timeline-marker top" style="left: 20%;"></div>
             <div class="timeline-content top" style="left: 20%; transform: translateX(-50%);">
                 <div class="timeline-year"><i class="fas fa-rocket"></i> 2019-2022</div>
@@ -941,7 +942,6 @@
                 </div>
             </div>
             
-            <!-- 2023-2024 -->
             <div class="timeline-marker bottom" style="left: 35%;"></div>
             <div class="timeline-content bottom" style="left: 35%; transform: translateX(-50%);">
                 <div class="timeline-year"><i class="fas fa-cogs"></i> 2023-2024</div>
@@ -951,17 +951,15 @@
                 </div>
             </div>
             
-            <!-- 2025 -->
             <div class="timeline-marker top" style="left: 50%;"></div>
             <div class="timeline-content top" style="left: 50%; transform: translateX(-50%);">
-                <div class="timeline-year"><i class="fas fa-chart-network"></i> 2025</div>
+                <div class="timeline-year"><i class="fa fa-arrows-alt"></i> 2025</div>
                 <div class="timeline-title">服务多元化</div>
                 <div class="timeline-description">
                     公司业务拓展至更多中国科技企业出海项目，提供GDPR合规咨询、实施交付与海外运维等多元化服务。
                 </div>
             </div>
             
-            <!-- 2026+ -->
             <div class="timeline-marker bottom" style="left: 70%;"></div>
             <div class="timeline-content bottom" style="left: 70%; transform: translateX(-50%);">
                 <div class="timeline-year"><i class="fas fa-robot"></i> 2026+</div>
@@ -979,7 +977,7 @@
             <p>我们始终走在"先难后易、先深后宽"的战略道路上</p>
         </div>
     </div>
-    </section>
+    </section> -->
 
     <!-- 企业优势 -->
     <section class="section advantages" id="advantages">
@@ -1035,68 +1033,6 @@
         </div>
     </section>
 
-    <!-- 合作伙伴与案例 -->
-    <section class="section partners" id="partners">
-        <div class="container">
-            <h2 class="section-title">合作伙伴与案例</h2>
-            <div class="partners-grid">
-                <div class="partner-logo">
-                    <img src="images/领克-link.png" alt="领克">
-                    <span>领克</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/沃尔沃-volvo.svg" alt="沃尔沃">
-                    <span>沃尔沃</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/极氪-Zeekr.png" alt="极氪">
-                    <span>极氪</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/极星-Polestar.png" alt="极星">
-                    <span>极星</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/岚图-Voyah.png" alt="岚图">
-                    <span>岚图</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/中远集团-cosco.png" alt="中国远洋集团">
-                    <span>中国远洋集团</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/莲花-Lotus.png" alt="莲花 Lotus">
-                    <span>莲花 Lotus</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/极光湾-aurobay.png" alt="极光湾 Aurobay">
-                    <span>极光湾 Aurobay</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/福田-FOTON.png" alt="福田汽车">
-                    <span>福田汽车</span>
-                </div>
-                <div class="partner-logo">
-                    <img src="images/奔驰-Smart.jpg" alt="Smart">
-                    <span>奔驰 Smart</span>
-                </div>
-            </div>
-            <div class="achievements">
-                <h3 style="margin-bottom: 20px; color: var(--text);">合作项目</h3>
-                <div class="achievement-item">
-                    <div class="achievement-title">吉利集团全球车联网项目</div>
-                    <p>为吉利集团汽车品牌（包括领克、沃尔沃、极氪、极星、路特斯与Smart）提供车联网系统的欧洲及全球技术运维服务，覆盖多个车型与市场。</p>
-                    <p><strong>成果亮点：</strong> 支撑百万辆车的全球联网运行；建立完善的7×24小时技术支持体系；实现高效、合规、可追溯的运维流程。</p>
-                </div>
-                <div class="achievement-item">
-                    <div class="achievement-title">中国远洋集团项目</div>
-                    <p>承担全欧洲站点网络设备升级与交付工作，覆盖多个国家和港口节点。</p>
-                    <p><strong>成果亮点：</strong> 多国同步实施与远程协作；网络性能与安全性显著提升；标准化交付与运维流程。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 人才和资源背景 -->
     <section class="section team" id="team">
         <div class="container">
@@ -1108,7 +1044,7 @@
                     <p>我们持续投资于人才培养和技术创新，确保团队始终处于行业前沿，为客户提供最优质的服务。</p>
                 </div>
                 <div class="team-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="团队协作">
+                    <img src="images/企业人才.png" alt="团队协作">
                 </div>
             </div>
             <div class="team-grid">
@@ -1173,6 +1109,68 @@
         </div>
     </section>
 
+    <!-- 合作伙伴与案例 -->
+    <section class="section partners" id="partners">
+        <div class="container">
+            <h2 class="section-title">合作伙伴</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="images/领克-link.png" alt="领克">
+                    <span>领克</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/沃尔沃-volvo.svg" alt="沃尔沃">
+                    <span>沃尔沃</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/极氪-Zeekr.png" alt="极氪">
+                    <span>极氪</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/极星-Polestar.png" alt="极星">
+                    <span>极星</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/岚图-Voyah.png" alt="岚图">
+                    <span>岚图</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/中远集团-cosco.png" alt="中国远洋集团">
+                    <span>中国远洋集团</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/莲花-Lotus.png" alt="莲花 Lotus">
+                    <span>莲花 Lotus</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/极光湾-aurobay.png" alt="极光湾 Aurobay">
+                    <span>极光湾 Aurobay</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/福田-FOTON.png" alt="福田汽车">
+                    <span>福田汽车</span>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/奔驰-Smart.jpg" alt="Smart">
+                    <span>奔驰 Smart</span>
+                </div>
+            </div>
+            <!-- <div class="achievements">
+                <h3 style="margin-bottom: 20px; color: var(--text);">合作项目</h3>
+                <div class="achievement-item">
+                    <div class="achievement-title">吉利集团全球车联网项目</div>
+                    <p>为吉利集团汽车品牌（包括领克、沃尔沃、极氪、极星、路特斯与Smart）提供车联网系统的欧洲及全球技术运维服务，覆盖多个车型与市场。</p>
+                    <p><strong>成果亮点：</strong> 支撑百万辆车的全球联网运行；建立完善的7×24小时技术支持体系；实现高效、合规、可追溯的运维流程。</p>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-title">中国远洋集团项目</div>
+                    <p>承担全欧洲站点网络设备升级与交付工作，覆盖多个国家和港口节点。</p>
+                    <p><strong>成果亮点：</strong> 多国同步实施与远程协作；网络性能与安全性显著提升；标准化交付与运维流程。</p>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
     <!-- 页脚 -->
     <footer id="contact">
         <div class="container">
@@ -1201,7 +1199,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="footer-column">
+                <!-- <div class="footer-column">
                     <h3>关注我们</h3>
                     <p>关注我们的社交媒体，获取最新动态</p>
                     <div class="social-links">
@@ -1210,11 +1208,11 @@
                         <a href="#"><i class="fab fa-weibo"></i></a>
                         <a href="#"><i class="fab fa-weixin"></i></a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="copyright">
-                <!-- <p>&copy; 2023 EuniTech AB. 保留所有权利. | <a href="https://www.euni-tech.com" style="color: var(--primary);">www.euni-tech.com</a></p> -->
-                <p style="margin-top: 10px;">引领欧洲数据合规与运维领域的创新与卓越未来</p>
+                <p>&copy; 2025 EuniTech 保留所有权利</p>
+                <!-- <p style="margin-top: 10px;">护航中国科技合规出海欧洲</p> -->
             </div>
         </div>
     </footer>
